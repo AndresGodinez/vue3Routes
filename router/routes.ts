@@ -1,11 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-
 const routes = [
   {
     path: '/auth',
     name: 'auth',
-    component: () => import('../src/modules/auth/pages/LoginPage.vue'),
+    redirect: { name: 'login' },
+    component: () => import('../src/modules/auth/layouts/LayoutAuth.vue'),
+    children: [
+      {
+        path: 'login',
+        name: 'login',
+        component: () => import('../src/modules/auth/pages/LoginPage.vue'),
+      },
+      {
+        path: 'register',
+        name: 'register',
+        component: () => import('../src/modules/auth/pages/RegisterPage.vue'),
+      },
+    ],
   },
   {
     path: '/',
@@ -34,6 +46,7 @@ const routes = [
       },
     ],
   },
+
 ];
 
 const router = createRouter({
