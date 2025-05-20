@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import isAuthenticatedGuard from '@/modules/auth/guard/is-authenticated.guard.ts';
 
 const routes = [
   {
@@ -44,13 +45,23 @@ const routes = [
         name: 'pricing',
         component: () => import('../src/modules/landing/pages/PricingPage.vue'),
       },
+      {
+        path: '/pokemon/:id',
+        beforeEnter: [isAuthenticatedGuard],
+        name: 'pokemon',
+        props: (route) => {
+          const id = Number(route.params.id);
+          return isNaN(id) ? { id: 1 } : { id };
+        },
+        component: () => import('../src/modules/landing/pages/PokemonPage.vue'),
+      },
     ],
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('../src/modules/common/pages/NotFoundPage.vue'),
-  }
+  },
 
 ];
 
