@@ -12,6 +12,7 @@
         <RouterLink to="features"> Features</RouterLink>
         <RouterLink to="pricing"> Pricing</RouterLink>
         <RouterLink to="contact"> Contact</RouterLink>
+        <RouterLink :to="{name:'login'}" class="text-blue-500 hover:text-blue-700">Login</RouterLink>
       </nav>
     </header>
     <!-- Fin Header -->

@@ -46,6 +46,11 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import('../src/modules/common/pages/NotFoundPage.vue'),
+  }
 
 ];
 
