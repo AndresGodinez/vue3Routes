@@ -3,7 +3,7 @@ import App from '../src/App.vue';
 import router from '../router/routes';
 
 describe('App.vue', () => {
-  it('should be render component correctly', () => {
+  it('should be render component correctly with RouterView', () => {
     const wrapper = shallowMount(App, {
       global: {
         plugins: [router],
