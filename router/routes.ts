@@ -50,7 +50,8 @@ const routes = [
         beforeEnter: [isAuthenticatedGuard],
         name: 'pokemon',
         props: (route) => {
-          const id = Number(route.params.id);
+          // const id = Number(route.params.id);
+          const id = +route.params.id;
           return isNaN(id) ? { id: 1 } : { id };
         },
         component: () => import('../src/modules/landing/pages/PokemonPage.vue'),
