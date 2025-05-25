@@ -9,13 +9,15 @@ describe('App.vue', () => {
         plugins: [router],
       },
     });
-    console.log({ wrapper: wrapper.html() });
+    // console.log({ wrapper: wrapper.html() });
+
 
     //buscar el componente
     const routerView = wrapper.findComponent({ name: 'RouterView' });
-    console.log({ routerView: routerView.html() });
+    // console.log({ routerView: routerView.html() });
 
     expect(routerView.exists()).toBe(true);
 
   });
 });
+
