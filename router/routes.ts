@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory ,type  RouteLocationNormalized} from 'vue-router';
 import isAuthenticatedGuard from '@/modules/auth/guard/is-authenticated.guard.ts';
 
 const routes = [
@@ -49,7 +49,7 @@ const routes = [
         path: '/pokemon/:id',
         beforeEnter: [isAuthenticatedGuard],
         name: 'pokemon',
-        props: (route) => {
+        props: (route:RouteLocationNormalized) => {
           // const id = Number(route.params.id);
           const id = +route.params.id;
           return isNaN(id) ? { id: 1 } : { id };
