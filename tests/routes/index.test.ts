@@ -14,7 +14,7 @@ describe('Routes', () => {
   test('should be render home page / correctly', async () => {
     await router.push('/');
     await router.isReady();
-    expect(wrapper.html()).toContain('Bienvenido a nuestro sitio web');
+    expect(wrapper.html()).toContain('https://github.com/AndresGodinez');
   });
 
   test('should be render features page /features correctly', async () => {
